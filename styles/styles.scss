@@ -2,10 +2,13 @@
 
 html{
   background-color: $background;
+  touch-action: none;
+  -webkit-text-size-adjust: none
 }
 body{
   background-color: $background;
   color:white;
+  overflow: hidden;it 
 }
 
 .full-width {

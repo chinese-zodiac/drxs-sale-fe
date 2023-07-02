@@ -35,7 +35,8 @@ class MyApp extends App {
           <meta name="description" content="DRXS Private Sale | Early access, DRX DAO and Network NFT (grow your DRX Network and earn rewards worth $250)" />
           <meta name="robots" content="index, follow"></meta>
           <meta property="og:locale" content="en_EN" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+          <meta name="HandheldFriendly" content="true"></meta>
           <link
             rel="shortcut icon"
             type="image/png"
