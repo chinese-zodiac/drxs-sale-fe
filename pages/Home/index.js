@@ -128,7 +128,7 @@ function Home() {
 
   return (<>
     <section id="top" className="hero has-text-centered" style={{ backgroundColor: "#09070b", minHeight: "85vh" }}>
-      <video className="background-video" autoPlay loop muted >
+      <video className="background-video" preload="none" autoPlay loop muted >
         <source src={BackgroundVideo} type="video/mp4" />
       </video>
       <div className="hero-head has-text-left pb-5 mt-0 pt-1" style={{ position: "relative", width: "100%", backgroundColor: "#09070b" }}>
