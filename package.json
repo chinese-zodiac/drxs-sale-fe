@@ -1,7 +1,7 @@
 {
   "name": "drx0sale0fe",
   "version": "1.0.0",
-  "homepage": ".",
+  "homepage": "./",
   "license": "GPL-3.0",
   "scripts": {
     "dev": "next",
