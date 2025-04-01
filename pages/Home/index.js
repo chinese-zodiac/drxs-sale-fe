@@ -14,10 +14,8 @@ import IERC20Abi from '../../abi/IERC20.json';
 import Footer from '../../components/Footer';
 import Web3ModalButton from '../../components/Web3ModalButton';
 import {
-  ADDRESS_BUSD,
   ADDRESS_CZUSD,
   ADDRESS_DGGSALE,
-  ADDRESS_USDC,
   ADDRESS_USDT,
 } from '../../constants/addresses';
 import useCountdown from '../../hooks/useCountdown';
@@ -32,8 +30,6 @@ const DggaleContract = new Contract(ADDRESS_DGGSALE, DggSaleInterface);
 
 const Ierc20Interface = new Interface(IERC20Abi);
 const CONTRACT_CZUSD = new Contract(ADDRESS_CZUSD, Ierc20Interface);
-const CONTRACT_BUSD = new Contract(ADDRESS_BUSD, Ierc20Interface);
-const CONTRACT_USDC = new Contract(ADDRESS_USDC, Ierc20Interface);
 const CONTRACT_USDT = new Contract(ADDRESS_USDT, Ierc20Interface);
 
 const displayWad = (wad) =>
@@ -46,21 +42,13 @@ function Home() {
   const accountBnbBal = useEtherBalance(account);
 
   const czusdBal = useTokenBalance(ADDRESS_CZUSD, account);
-  const usdcBal = useTokenBalance(ADDRESS_USDC, account);
-  const busdBal = useTokenBalance(ADDRESS_BUSD, account);
   const usdtBal = useTokenBalance(ADDRESS_USDT, account);
 
   const czusdAllow = useTokenAllowance(ADDRESS_CZUSD, account, ADDRESS_DGGSALE);
-  const usdcAllow = useTokenAllowance(ADDRESS_USDC, account, ADDRESS_DGGSALE);
-  const busdAllow = useTokenAllowance(ADDRESS_BUSD, account, ADDRESS_DGGSALE);
   const usdtAllow = useTokenAllowance(ADDRESS_USDT, account, ADDRESS_DGGSALE);
 
   const { state: stateCzusdApprove, send: sendCzusdApprove } =
     useContractFunction(CONTRACT_CZUSD, 'approve');
-  const { state: stateBusdApprove, send: sendBusdApprove } =
-    useContractFunction(CONTRACT_BUSD, 'approve');
-  const { state: stateUsdcApprove, send: sendUsdcApprove } =
-    useContractFunction(CONTRACT_USDC, 'approve');
   const { state: stateUsdtApprove, send: sendUsdtApprove } =
     useContractFunction(CONTRACT_USDT, 'approve');
 
@@ -70,10 +58,6 @@ function Home() {
   );
   const { state: stateDepositCzusd, send: sendDepositCzusd } =
     useContractFunction(DggaleContract, 'depositCzusd');
-  const { state: stateDepositBusd, send: sendDepositBusd } =
-    useContractFunction(DggaleContract, 'depositBusd');
-  const { state: stateDepositUsdc, send: sendDepositUsdc } =
-    useContractFunction(DggaleContract, 'depositUsdc');
   const { state: stateDepositUsdt, send: sendDepositUsdt } =
     useContractFunction(DggaleContract, 'depositUsdt');
 
@@ -159,22 +143,10 @@ function Home() {
       setSelectedStableBal(usdtBal ?? parseEther('0'));
       setIsApproveNeeded(!!usdtAllow?.lt(usdtBal.add(1)));
     }
-    if (selectedStable == 'BUSD') {
-      setSelectedStableBal(busdBal ?? parseEther('0'));
-      setIsApproveNeeded(!!busdAllow?.lt(busdBal.add(1)));
-    }
-    if (selectedStable == 'USDC') {
-      setSelectedStableBal(usdcBal ?? parseEther('0'));
-      setIsApproveNeeded(!!usdcAllow?.lt(usdcBal.add(1)));
-    }
   }, [
     selectedStable,
     czusdBal,
     czusdAllow,
-    busdBal,
-    busdAllow,
-    usdcBal,
-    usdcAllow,
     usdtAllow,
     usdtAllow,
     account,
@@ -218,13 +190,12 @@ function Home() {
                   <img src={DggLogo} />
                 </figure>
               </a>
-              <p className="title ml-5 mt-4" style={{ color: '#36CCEB' }}>
-                DRXS Private Sale
+              <p className="title ml-5 mt-4 color-primary">
+                Dojak Liquidity Sale
               </p>
-              <p className="subtitle is-size-6 mr-5 " style={{ color: '#ddd' }}>
+              <p className="subtitle is-size-6 mr-5 color-secondary">
                 {' '}
-                Early access, DRX DAO and Network NFT (grow your DRX Network and
-                earn rewards worth $250)
+                Get Dojak on SOL in this private liquidity sale.
               </p>
             </div>
             <Web3ModalButton />
@@ -248,7 +219,7 @@ function Home() {
           <div className="container has-text-centered">
             <h2 className="is-size-3 mt-3">
               PRIVATE SALE:
-              <br /> Use <span style={{ color: '#36CCEB' }}>BNB</span> or{' '}
+              <br /> Use <span style={{ color: '#f5ca2f' }}>BNB</span> or{' '}
               <span style={{ color: '#32bc35' }}>STABLES</span>
             </h2>
             <div
@@ -261,32 +232,32 @@ function Home() {
             >
               <ul>
                 <hr className="m-2 has-background-primary" />
-                <li style={{ textShadow: '0px 0px 4px black' }}>1 DRXS = $1</li>
-                <li style={{ textShadow: '0px 0px 4px black' }}>
+                {/*<li style={{ textShadow: '0px 0px 4px black' }}>1 DOJAK = $1</li>*/}
+                {/*<li style={{ textShadow: '0px 0px 4px black' }}>
                   Softcap: 10000 USD
                 </li>
                 <li style={{ textShadow: '0px 0px 4px black' }}>
                   Hardcap: {displayWad(hardcap)} USD
-                </li>
+                </li>*/}
                 <li style={{ textShadow: '0px 0px 4px black' }}>
                   Total Deposits: {displayWad(totalDeposits)} USD
                 </li>
-                <li style={{ textShadow: '0px 0px 4px black' }}>
+                {/*<li style={{ textShadow: '0px 0px 4px black' }}>
                   Wallet Max: {displayWad(maxDepositWad)} USD
-                </li>
+                </li>*/}
                 <li style={{ textShadow: '0px 0px 4px black' }}>
                   Wallet Min: {displayWad(minDepositWad)} USD
                 </li>
                 <hr className="m-2 has-background-primary" />
-                <li style={{ textShadow: '0px 0px 4px black' }}>
+                {/*<li style={{ textShadow: '0px 0px 4px black' }}>
                   Launch Timers
-                </li>
+                </li>*/}
                 <li style={{ textShadow: '0px 0px 4px black' }}>
                   Start Timer: {startEpochTimer}
                 </li>
-                <li style={{ textShadow: '0px 0px 4px black' }}>
+                {/*<li style={{ textShadow: '0px 0px 4px black' }}>
                   End Timer: {endEpochTimer}
-                </li>
+                </li>*/}
                 <hr className="m-2 has-background-primary" />
                 <li style={{ textShadow: '0px 0px 4px black' }}>
                   Your Deposit: {displayWad(depositedAmount)} USD
@@ -421,10 +392,8 @@ function Home() {
                   value={selectedStable}
                   onChange={(event) => setSelectedStable(event.target.value)}
                 >
-                  <option value="CZUSD">CZUSD</option>
-                  <option value="BUSD">BUSD</option>
-                  <option value="USDC">USDC</option>
                   <option value="USDT">USDT</option>
+                  <option value="CZUSD">CZUSD</option>
                 </select>
               </div>
               <br />
@@ -452,17 +421,11 @@ function Home() {
                     );
                     if (selectedStable == 'CZUSD')
                       sendCzusdApprove(ADDRESS_DGGSALE, constants.MaxUint256);
-                    if (selectedStable == 'BUSD')
-                      sendBusdApprove(ADDRESS_DGGSALE, constants.MaxUint256);
-                    if (selectedStable == 'USDC')
-                      sendUsdcApprove(ADDRESS_DGGSALE, constants.MaxUint256);
                     if (selectedStable == 'USDT')
                       sendUsdtApprove(ADDRESS_DGGSALE, constants.MaxUint256);
                   } else {
                     console.log('Doesnt need approve...');
                     if (selectedStable == 'CZUSD') sendDepositCzusd(wad);
-                    if (selectedStable == 'BUSD') sendDepositBusd(wad);
-                    if (selectedStable == 'USDC') sendDepositUsdc(wad);
                     if (selectedStable == 'USDT') sendDepositUsdt(wad);
                   }
                 }}

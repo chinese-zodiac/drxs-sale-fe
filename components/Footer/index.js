@@ -19,10 +19,10 @@ function Footer() {
         v0.1.10
       </p>
       <p>
-        <a style={{ color: '#36CCEB' }} href={LINK_TERMS_OF_USE}>Terms of Use</a>
+        <a className='color-primary' href={LINK_TERMS_OF_USE}>Terms of Use</a>
       </p>
       <p>
-        <a style={{ color: '#36CCEB' }} href={LINK_PRIVACY_POLICY}>
+        <a className='color-primary' href={LINK_PRIVACY_POLICY}>
           Privacy Policy
         </a>
       </p>

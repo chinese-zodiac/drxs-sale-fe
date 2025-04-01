@@ -11,7 +11,7 @@ import '../styles/styles.scss';
 const config = {
   readOnlyChainId: BSC.chainId,
   readOnlyUrls: {
-    [BSC.chainId]: 'https://bscrpc.com',
+    [BSC.chainId]: 'https://bsc.rpc.blxrbdn.com',
   },
   networks: [BSC],
 };
@@ -32,12 +32,11 @@ class MyApp extends App {
       <DAppProvider config={config}>
         <Head>
           <title>
-            DRXS Private Sale | Early access, DRX DAO and Network NFT (grow your
-            DRX Network and earn rewards worth $250)
+            Dojak Private Sale | Get in early and boost Dojak with Solana Liquidity
           </title>
           <meta
             name="description"
-            content="DRXS Private Sale | Early access, DRX DAO and Network NFT (grow your DRX Network and earn rewards worth $250)"
+            content="Dojak Private Sale | Get in early and boost Dojak with Solana Liquidity"
           />
           <meta name="robots" content="index, follow"></meta>
           <meta property="og:locale" content="en_EN" />
@@ -46,13 +45,13 @@ class MyApp extends App {
 
           <meta
             property="og:title"
-            content="DRXS Private Sale | Early access, DRX DAO and Network NFT (grow your DRX Network and earn rewards worth $250)"
+            content="Dojak Private Sale | Get in early and boost Dojak with Solana Liquidity"
           />
-          <meta property="og:site_name" content="DRXS Private Sale" />
+          <meta property="og:site_name" content="Dojak Private Sale" />
           <meta property="og:url" content="https://dojak.cz.cash/" />
           <meta
             property="og:description"
-            content="DRXS Private Sale | Early access, DRX DAO and Network NFT (grow your DRX Network and earn rewards worth $250)"
+            content="Dojak Private Sale | Get in early and boost Dojak with Solana Liquidity"
           />
           <meta property="og:type" content="article" />
           <meta
@@ -66,7 +65,7 @@ class MyApp extends App {
           <meta name="twitter:site" content="https://dojak.cz.cash/" />
           <meta
             name="twitter:title"
-            content="DRXS Private Sale | Early access, DRX DAO and Network NFT (grow your DRX Network and earn rewards worth $250)"
+            content="Dojak Private Sale | Get in early and boost Dojak with Solana Liquidity"
           />
           <meta
             name="twitter:image"
@@ -76,7 +75,7 @@ class MyApp extends App {
           <meta name="twitter:image:height" content="630" />
           <meta
             name="twitter:description"
-            content="DRXS Private Sale | Early access, DRX DAO and Network NFT (grow your DRX Network and earn rewards worth $250)"
+            content="Dojak Private Sale | Get in early and boost Dojak with Solana Liquidity"
           />
         </Head>
         <Component {...pageProps} />

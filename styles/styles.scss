@@ -39,6 +39,13 @@ a.is-secondary{
   }
 }
 
+.color-primary{
+  color:$primary;
+}
+.color-secondary{
+  color:$secondary;
+}
+
 .footer {
   background-color: $background;
   .content a{
