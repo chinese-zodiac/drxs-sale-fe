@@ -61,7 +61,7 @@ function Home() {
   const { state: stateDepositUsdt, send: sendDepositUsdt } =
     useContractFunction(DggaleContract, 'depositUsdt');
 
-  const [selectedStable, setSelectedStable] = useState('CZUSD');
+  const [selectedStable, setSelectedStable] = useState('USDT');
   const [selectStableBal, setSelectedStableBal] = useState(czusdBal);
   const [isApproveNeeded, setIsApproveNeeded] = useState(false);
 
