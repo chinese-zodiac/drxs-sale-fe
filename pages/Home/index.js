@@ -66,7 +66,7 @@ function Home() {
   const [isApproveNeeded, setIsApproveNeeded] = useState(false);
 
   const [depositBnbInput, setDepositBnbInput] = useState(0.1);
-  const [depositUsdInput, setDepositUsdInput] = useState(20);
+  const [depositUsdInput, setDepositUsdInput] = useState(50);
 
   const {
     value: [minDepositWad],
@@ -326,9 +326,9 @@ function Home() {
                     accountBnbBal?.gte(
                       parseEther(depositBnbInput?.toString() ?? '0')
                     )
-                      ? '#36CCEB'
+                      ? '#f5ca2f'
                       : '#555',
-                  border: 'solid 4px #36CCEB',
+                  border: 'solid 4px #f5ca2f',
                 }}
                 onClick={() => {
                   console.log(
