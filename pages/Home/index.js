@@ -330,18 +330,18 @@ function Home() {
                       : '#555',
                   border: 'solid 4px #f5ca2f',
                 }}
-                onClick={() => {
-                  console.log(
-                    (Number(bnbPrice) * depositBnbInput * 0.9).toString()
-                  );
-                  sendDepositBnb(
+                onClick={async () => {
+                  const minUsdReceived = (Number(bnbPrice) * depositBnbInput * 0.97).toString()
+                  const wad = parseEther(depositBnbInput.toString());
+                  console.log(minUsdReceived);
+                  console.log(parseEther(minUsdReceived).toString());
+                  let response = await sendDepositBnb(
                     parseEther(
-                      Math.floor(
-                        Number(bnbPrice) * depositBnbInput * 0.9
-                      ).toString()
-                    ),
-                    { value: parseEther(depositBnbInput.toString()) }
+                      minUsdReceived
+                    ).toString(),
+                    { value: wad }
                   );
+                  console.log(response);
                 }}
               >
                 DEPOSIT
